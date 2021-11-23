@@ -32,6 +32,13 @@ namespace shooterplanething
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MoverBigTimer = new System.Windows.Forms.Timer(this.components);
+            this.Player = new System.Windows.Forms.PictureBox();
+            this.LeftMoveTimer = new System.Windows.Forms.Timer(this.components);
+            this.RightMoverTimer = new System.Windows.Forms.Timer(this.components);
+            this.DownMoveTimer = new System.Windows.Forms.Timer(this.components);
+            this.UpMoveTimer = new System.Windows.Forms.Timer(this.components);
+            this.MMT = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
             // MoverBigTimer
@@ -40,17 +47,60 @@ namespace shooterplanething
             this.MoverBigTimer.Interval = 10;
             this.MoverBigTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Player
+            // 
+            this.Player.BackColor = System.Drawing.Color.Transparent;
+            this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
+            this.Player.Location = new System.Drawing.Point(260, 400);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(50, 50);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Player.TabIndex = 0;
+            this.Player.TabStop = false;
+            this.Player.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // LeftMoveTimer
+            // 
+            this.LeftMoveTimer.Interval = 5;
+            this.LeftMoveTimer.Tick += new System.EventHandler(this.LeftMoveTimer_Tick);
+            // 
+            // RightMoverTimer
+            // 
+            this.RightMoverTimer.Interval = 5;
+            this.RightMoverTimer.Tick += new System.EventHandler(this.RightMoverTimer_Tick);
+            // 
+            // DownMoveTimer
+            // 
+            this.DownMoveTimer.Interval = 5;
+            this.DownMoveTimer.Tick += new System.EventHandler(this.DownMoveTimer_Tick);
+            // 
+            // UpMoveTimer
+            // 
+            this.UpMoveTimer.Interval = 5;
+            this.UpMoveTimer.Tick += new System.EventHandler(this.UpMoveTimer_Tick);
+            // 
+            // MMT
+            // 
+            this.MMT.Enabled = true;
+            this.MMT.Interval = 20;
+            this.MMT.Tick += new System.EventHandler(this.MMT_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.Player);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(600, 500);
             this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "Form1";
             this.Text = "Shooty Thing";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -58,6 +108,12 @@ namespace shooterplanething
         #endregion
 
         private System.Windows.Forms.Timer MoverBigTimer;
+        private System.Windows.Forms.PictureBox Player;
+        private System.Windows.Forms.Timer LeftMoveTimer;
+        private System.Windows.Forms.Timer RightMoverTimer;
+        private System.Windows.Forms.Timer DownMoveTimer;
+        private System.Windows.Forms.Timer UpMoveTimer;
+        private System.Windows.Forms.Timer MMT;
     }
 }
 

@@ -38,6 +38,11 @@ namespace shooterplanething
             this.DownMoveTimer = new System.Windows.Forms.Timer(this.components);
             this.UpMoveTimer = new System.Windows.Forms.Timer(this.components);
             this.MMT = new System.Windows.Forms.Timer(this.components);
+            this.MET = new System.Windows.Forms.Timer(this.components);
+            this.EMT = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.ReplayBtn = new System.Windows.Forms.Button();
+            this.ExitBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,12 +90,57 @@ namespace shooterplanething
             this.MMT.Interval = 20;
             this.MMT.Tick += new System.EventHandler(this.MMT_Tick);
             // 
+            // MET
+            // 
+            this.MET.Enabled = true;
+            this.MET.Tick += new System.EventHandler(this.MET_Tick);
+            // 
+            // EMT
+            // 
+            this.EMT.Enabled = true;
+            this.EMT.Interval = 20;
+            this.EMT.Tick += new System.EventHandler(this.EMT_Tick);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Ravie", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(560, 54);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // ReplayBtn
+            // 
+            this.ReplayBtn.Location = new System.Drawing.Point(230, 194);
+            this.ReplayBtn.Name = "ReplayBtn";
+            this.ReplayBtn.Size = new System.Drawing.Size(106, 43);
+            this.ReplayBtn.TabIndex = 2;
+            this.ReplayBtn.Text = "Replay";
+            this.ReplayBtn.UseVisualStyleBackColor = true;
+            this.ReplayBtn.Visible = false;
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Location = new System.Drawing.Point(230, 279);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(106, 43);
+            this.ExitBtn.TabIndex = 3;
+            this.ExitBtn.Text = "Exit";
+            this.ExitBtn.UseVisualStyleBackColor = true;
+            this.ExitBtn.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.ExitBtn);
+            this.Controls.Add(this.ReplayBtn);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Player);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(600, 500);
@@ -114,6 +164,11 @@ namespace shooterplanething
         private System.Windows.Forms.Timer DownMoveTimer;
         private System.Windows.Forms.Timer UpMoveTimer;
         private System.Windows.Forms.Timer MMT;
+        private System.Windows.Forms.Timer MET;
+        private System.Windows.Forms.Timer EMT;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ReplayBtn;
+        private System.Windows.Forms.Button ExitBtn;
     }
 }
 

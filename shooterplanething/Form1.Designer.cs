@@ -43,6 +43,8 @@ namespace shooterplanething
             this.label1 = new System.Windows.Forms.Label();
             this.ReplayBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
+            this.scorelbl = new System.Windows.Forms.Label();
+            this.levellbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,9 +106,9 @@ namespace shooterplanething
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Ravie", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Location = new System.Drawing.Point(89, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(560, 54);
+            this.label1.Size = new System.Drawing.Size(427, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             this.label1.Visible = false;
@@ -121,6 +123,7 @@ namespace shooterplanething
             this.ReplayBtn.Text = "Replay";
             this.ReplayBtn.UseVisualStyleBackColor = true;
             this.ReplayBtn.Visible = false;
+            this.ReplayBtn.Click += new System.EventHandler(this.ReplayBtn_Click);
             // 
             // ExitBtn
             // 
@@ -131,6 +134,25 @@ namespace shooterplanething
             this.ExitBtn.Text = "Exit";
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Visible = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
+            // 
+            // scorelbl
+            // 
+            this.scorelbl.AutoSize = true;
+            this.scorelbl.Location = new System.Drawing.Point(51, 28);
+            this.scorelbl.Name = "scorelbl";
+            this.scorelbl.Size = new System.Drawing.Size(35, 13);
+            this.scorelbl.TabIndex = 4;
+            this.scorelbl.Text = "label2";
+            // 
+            // levellbl
+            // 
+            this.levellbl.AutoSize = true;
+            this.levellbl.Location = new System.Drawing.Point(480, 27);
+            this.levellbl.Name = "levellbl";
+            this.levellbl.Size = new System.Drawing.Size(35, 13);
+            this.levellbl.TabIndex = 5;
+            this.levellbl.Text = "label3";
             // 
             // Form1
             // 
@@ -138,6 +160,8 @@ namespace shooterplanething
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.levellbl);
+            this.Controls.Add(this.scorelbl);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.ReplayBtn);
             this.Controls.Add(this.label1);
@@ -152,6 +176,7 @@ namespace shooterplanething
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,6 +194,8 @@ namespace shooterplanething
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ReplayBtn;
         private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.Label scorelbl;
+        private System.Windows.Forms.Label levellbl;
     }
 }
 

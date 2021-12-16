@@ -347,6 +347,27 @@ namespace shooterplanething
                     || munitions[1].Bounds.IntersectsWith(enemies[i].Bounds) || munitions[2].Bounds.IntersectsWith(enemies[i].Bounds))
                 {
                     explosion.controls.play();
+                    score += 1;
+                    scorelbl.Text = (score < 10) ? "0" + score.ToString() : score.ToString();
+
+                    if (score % 30 == 0)
+                    {
+                        level += 1;
+                        levellbl.Text = (level < 10) ? "0" + level.ToString() : level.ToString();
+
+                        if (Espeed <= 10 && enemMspeed <=10 && diff >= 0)
+                        {
+                            diff--;
+                            Espeed++;
+                            enemMspeed++;
+
+                        }
+
+                        if (level == 10)
+                        {
+                            GameOver("Nice work person");
+                        }
+                    }
                     enemies[i].Location = new Point((i + 1) * 50, -100);
                 }
 
@@ -362,6 +383,12 @@ namespace shooterplanething
         //gameover stuff
         private void GameOver(String str)
         {
+            label1.Text = str;
+            label1.Location = new Point(120, 120);
+            label1.Visible = true;
+            ReplayBtn.Visible = true;
+            ExitBtn.Visible = true;
+
             gameMedia.controls.stop();
             StopTimers();
         }
@@ -386,9 +413,9 @@ namespace shooterplanething
         //enemy munition timer stuff
         private void EMT_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < enemM.Length; i++)
+            for (int i = 0; i < (enemM.Length - diff); i++)
             {
-                if (enemM[i].Top < this.Height)
+                if (enemM[i].Top < this.Height) 
                 {
                     enemM[i].Visible = true;
                     enemM[i].Top += enemMspeed;
@@ -415,15 +442,30 @@ namespace shooterplanething
                     explosion.settings.volume = 30;
                     explosion.controls.play();
                     Player.Visible = false;
-                    GameOver("Game Over LLLL");
+                    GameOver("Game Over L");
                 }
             }
         }
 
+        //label
         private void label1_Click(object sender, EventArgs e)
         {
+             
 
+        }
 
+        //replay button
+        private void ReplayBtn_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            InitializeComponent();
+            Form1_Load(e, e);
+        }
+
+        //exit button
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
         }
     }
 }

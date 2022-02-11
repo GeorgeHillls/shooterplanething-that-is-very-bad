@@ -232,7 +232,7 @@ namespace shooterplanething
         //up
         private void UpMoveTimer_Tick(object sender, EventArgs e)
         {
-            if (Player.Top > 10)
+            if (Player.Top > 10 )
             {
                 Player.Top -= Pspeed;
             }
@@ -385,9 +385,13 @@ namespace shooterplanething
         {
             label1.Text = str;
             label1.Location = new Point(120, 120);
+            label1.Text = str.Trim();
             label1.Visible = true;
+            GameIsOver = true;
+            pause = true;
             ReplayBtn.Visible = true;
             ExitBtn.Visible = true;
+
 
             gameMedia.controls.stop();
             StopTimers();
@@ -466,6 +470,11 @@ namespace shooterplanething
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void levellbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

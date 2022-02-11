@@ -153,6 +153,7 @@ namespace shooterplanething
             this.levellbl.Size = new System.Drawing.Size(35, 13);
             this.levellbl.TabIndex = 5;
             this.levellbl.Text = "label3";
+            this.levellbl.Click += new System.EventHandler(this.levellbl_Click);
             // 
             // Form1
             // 
